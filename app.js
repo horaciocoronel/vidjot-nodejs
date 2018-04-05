@@ -1,5 +1,5 @@
 const express = require('express');
-
+const exphbs = require('express-handlebars');
 const app = express();
 
 // Handlebars Middleware
@@ -8,10 +8,13 @@ app.set('view engine', 'handlebars');
 
 // Routes
 app.get('/', (req, res) => {
-	res.send('INDEX');
+	const title = "Welcome";
+	res.render('index', {
+		title: title
+	});
 });
 app.get('/about', (req, res) => {
-	res.send('ABOUT');
+	res.render('about');
 })
 
 

@@ -36,7 +36,13 @@ app.get('/about', (req, res) => {
 })
 
 app.get('/ideas', (req, res) => {
-	res.render('ideas/index');
+	Idea.find({})
+		.sort({date:'desc'})
+		.then(ideas => {
+			res.render('ideas/index', {
+				ideas:ideas
+			});
+		});
 })
 
 app.get('/ideas/add', (req, res) => {

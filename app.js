@@ -105,6 +105,7 @@ app.post('/ideas', (req, res) => {
 		new Idea(newUser)
 			.save()
 			.then(idea => {
+				req.flash('success_msg', 'Video Idea added')
 				res.redirect('/ideas');
 			})
 	}
@@ -123,6 +124,7 @@ app.put('/ideas/:id', (req, res) => {
 
 		idea.save()
 			.then(idea => {
+				req.flash('success_msg', 'Video Idea updated')
 				res.redirect('/ideas');
 			})
 	})
@@ -133,6 +135,7 @@ app.put('/ideas/:id', (req, res) => {
 app.delete('/ideas/:id', (req, res) => {
 	Idea.remove({_id: req.params.id})
 		.then(() => {
+			req.flash('success_msg', 'Video Idea removed')
 			res.redirect('/ideas');
 		});
 });

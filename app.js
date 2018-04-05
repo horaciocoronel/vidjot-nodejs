@@ -38,6 +38,14 @@ app.use(session({
 // Connect-flash Middleware
 app.use(flash());
 
+// Global Variables
+app.use((req, res, next) => {
+	res.locals.success_msg = req.flash('success_msg');
+	res.locals.error_msg = req.flash('error_msg');
+	res.locals.error = req.flash('error');
+	next();
+})
+
 // Routes
 app.get('/', (req, res) => {
 	const title = "Welcome";

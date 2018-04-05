@@ -22,6 +22,7 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
 // Routes
 app.get('/', (req, res) => {
 	const title = "Welcome";
@@ -32,6 +33,10 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
 	res.render('about');
+})
+
+app.get('/ideas', (req, res) => {
+	res.render('ideas/index');
 })
 
 app.get('/ideas/add', (req, res) => {

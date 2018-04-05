@@ -1,8 +1,20 @@
 {{#each ideas}}
 	<div class="card card-body mb-2">
+		<div class="row">
+			<div class="col-md-9">
 		<h4>{{title}}</h4>
 		<p>{{details}}</p>
-		<a href="/ideas/edit/{{id}}" class="btn btn-secondary btn-block"><i class="fas fa-pencil-alt"></i> Edit</a>
+	</div>
+	<div class="col-md-3">
+				<a href="/ideas/edit/{{id}}" class="btn btn-secondary btn-block mb-2"><i class="fas fa-pencil-alt"></i> Edit</a>
+				<form method="POST" action="/ideas/{{id}}?_method=DELETE">
+					<input type="hidden" name="_method" value="DELETE">
+						<button type="submit" class="btn btn-danger btn-block"><i class="far fa-trash-alt"></i> Delete</a></button>
+				</form>
+			</div>
+		</div>
+
+
 	</div>
 {{else}}
 		<p>No videos ideas listed</p>

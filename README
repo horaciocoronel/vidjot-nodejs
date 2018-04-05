@@ -1,7 +1,13 @@
 # VidJot App
+
 ## Deployed version
+
 Link
+
 ###### Add video ideas
+
 App created using Node.js
-## Instruction
+
+## Instructions
+
 Clone, cd into the app directory, and run by using node app.js

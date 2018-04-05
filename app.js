@@ -1,6 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
@@ -26,6 +28,15 @@ app.use(bodyParser.json());
 // methodOverride Middleware
 app.use(methodOverride('_method'));
 
+// express session Middleware
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Connect-flash Middleware
+app.use(flash());
 
 // Routes
 app.get('/', (req, res) => {
